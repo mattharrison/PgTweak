@@ -74,7 +74,7 @@ TODO
 Enabling Logging
 ================
 
-* Need to turn on Postgres logging in ``postgresql.conf``::
+Need to turn on Postgres logging in ``postgresql.conf``::
 
   log_destination = stderr
   logging_collector = on
