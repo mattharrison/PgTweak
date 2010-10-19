@@ -5,6 +5,15 @@ import unittest
 import pgtweaklib
 
 class TestPgtweaklib(unittest.TestCase):
+    def test_needs_mem_boost(self):
+        results = """GroupAggregate  (cost=42856.20..45104.53 rows=32119 width=247) (actual time=32606.422..44289.146 rows=9869 loops=1)
+   ->  Sort  (cost=42856.20..42936.50 rows=32119 width=247) (actual time=32605.346..43664.767 rows=162941 loops=1)
+         Sort Key: nov_14_08ag_wk_vendor_fact.department, nov_14_08ag_wk_vendor_fact.department_name, nov_14_08ag_wk_vendor_fact.department_num, nov_14_08ag_wk_vendor_fact.category, nov_14_08ag_wk_vendor_fact.category_name, nov_14_08ag_wk_vendor_fact.category_num, nov_14_08ag_wk_vendor_fact.subcategory, nov_14_08ag_wk_vendor_fact.subcategory_name, nov_14_08ag_wk_vendor_fact.subcategory_num, nov_14_08ag_wk_vendor_fact.product, nov_14_08ag_wk_vendor_fact.primary_upc, nov_14_08ag_wk_vendor_fact.upc_description, nov_14_08ag_wk_vendor_fact.size, nov_14_08ag_wk_vendor_fact.create_date, nov_14_08ag_wk_vendor_fact.discontinued_date
+         Sort Method:  external merge  Disk: 43768kB
+         ->  Nested Loop  (cost=0.00..36717.41 rows=32119 width=247) (actual time=3.505..755.673 rows=162941 loops=1)
+        """
+        self.assertEquals(suggestions(results), 'up work_mem to at least 44MB')        
+    
     def test_needs_index(self):
         """
         The following results should suggest adding an index

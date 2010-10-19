@@ -69,7 +69,20 @@ run, results, and settings for that query.
 Settings and explanations
 =========================
 
-TODO
+Explain settings (TODO)
+
+random_page_cost
+-----------------
+ 
+  http://archives.postgresql.org/pgsql-performance/2004-02/msg00287.php
+
+general settings
+-----------------
+
+  http://archives.postgresql.org/pgsql-hackers/2008-11/msg00919.php
+
+
+ 
 
 Enabling Logging
 ================
