@@ -71,6 +71,8 @@ Settings and explanations
 
 Explain settings (TODO)
 
+  http://www.varlena.com/GeneralBits/Tidbits/annotated_conf_e.html
+
 random_page_cost
 -----------------
  
