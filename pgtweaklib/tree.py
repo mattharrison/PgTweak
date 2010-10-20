@@ -140,7 +140,6 @@ def get_name(line):
         name = name[len(arrow):]
 
     other = None
-    print name
     if name.startswith('Seq Scan'):
         seq_re = re.compile(r'(\s+\w+)* on (?P<table>\w+)')
         other = seq_re.search(name).group('table')
